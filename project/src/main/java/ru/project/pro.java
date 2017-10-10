@@ -6,11 +6,17 @@ public class pro {
     hello(4);
     hello(5);
     hello(6);
-    double l = 5;
-    System.out.println(area(l));
-    double a = 5;
-    double b = 7;
-    System.out.println(area2(a, b));
+
+    Square s = new Square(5);
+    System.out.println("Площадь квадрата со стороной " + s.l + " = " + s.area());
+
+    Rectangle r = new Rectangle(5, 7);
+    System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = "+ r.area2());
+
+    Point p = new Point(1, -8, 10, -16);
+    System.out.println("Расстрояние между двумя точками равно = " + p.distance());
+
+
   }
 
   public static void hello(double perem) {
@@ -18,12 +24,7 @@ public class pro {
     System.out.println("Hello, " + perem );
   }
 
-  public static double area(double l) {
 
-    return l*l;
-  }
-  public static double area2(double a, double b){
 
-    return a*b;
-  }
+
 }
