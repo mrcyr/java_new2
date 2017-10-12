@@ -3,6 +3,7 @@ package ru.project;
 public class pro {
 
   public static void main (String[] args) {
+
     hello(4);
     hello(5);
     hello(6);
