@@ -1,15 +1,14 @@
 package ru.addressbook;
 
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.*;
-
-public class Contact {
+public class ContactAdd {
     FirefoxDriver wd;
     
     @BeforeMethod
@@ -40,7 +39,6 @@ public class Contact {
   private void gotoHome() {
     wd.findElement(By.linkText("home")).click();
   }
-
   private void fillCotactInfo(ContactData contactData) {
     wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
     wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
@@ -57,7 +55,6 @@ public class Contact {
   private void addContact() {
     wd.findElement(By.linkText("add new")).click();
   }
-
   @AfterMethod
     public void tearDown() {
         wd.close();
