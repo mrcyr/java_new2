@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 
-public class Gavno {
+public class Norm {
     FirefoxDriver wd;
     
     @BeforeMethod
@@ -31,7 +31,7 @@ public class Gavno {
   }
 
   @Test
-    public void gavnotest() {
+    public void Normtest() {
     gotoGroupPage();
     initGroupCreate();
     fillGroupForm(new GroupData("\\49", "123", "213"));
@@ -66,6 +66,9 @@ public class Gavno {
   private void gotoGroupPage() {
     wd.findElement(By.linkText("groups")).click();
   }
+
+  @Test
+
 
   @AfterMethod
     public void tearDown() {
