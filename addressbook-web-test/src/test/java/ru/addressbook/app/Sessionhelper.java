@@ -3,20 +3,15 @@ package ru.addressbook.app;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Sessionhelper {
-  private FirefoxDriver wd;
+public class Sessionhelper extends Helperbase {
 
   public Sessionhelper(FirefoxDriver wd) {
-    this.wd = wd;
+    super(wd);
   }
 
-  protected void login(String username, String password) {
-  wd.findElement(By.name("user")).click();
-  wd.findElement(By.name("user")).clear();
-  wd.findElement(By.name("user")).sendKeys(username);
-  wd.findElement(By.name("pass")).click();
-  wd.findElement(By.name("pass")).clear();
-  wd.findElement(By.name("pass")).sendKeys(password);
-  wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
+  public void login(String username, String password) {
+    type("user", username);
+    type("pass", password);
+    click(By.xpath("//form[@id='LoginForm']/input[3]"));
 }
 }

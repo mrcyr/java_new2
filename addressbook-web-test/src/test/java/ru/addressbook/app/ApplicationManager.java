@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
   FirefoxDriver wd;
 
+
+  private Contacthelper contacthelper;
   private Sessionhelper sessionhelper;
   private Navigationhelper navigationhelper;
   private Grouphelper01 grouphelper01;
@@ -17,6 +19,7 @@ public class ApplicationManager {
     grouphelper01 = new Grouphelper01(wd);
     navigationhelper = new Navigationhelper(wd);
     sessionhelper = new Sessionhelper(wd);
+    contacthelper = new Contacthelper(wd);
     sessionhelper.login("admin", "secret");
   }
 
@@ -25,14 +28,21 @@ public class ApplicationManager {
   }
 
   public Grouphelper01 getGrouphelper01() {
+
     return grouphelper01;
   }
 
   public Navigationhelper getNavigationhelper() {
+
     return navigationhelper;
   }
 
   public Sessionhelper getSessionhelper() {
+
     return sessionhelper;
+  }
+
+  public Contacthelper getContacthelper() {
+    return contacthelper;
   }
 }
