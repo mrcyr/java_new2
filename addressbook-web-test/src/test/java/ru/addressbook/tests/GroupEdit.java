@@ -11,7 +11,7 @@ public class GroupEdit extends Testbase {
     app.getNavigationhelper().gotoGroupPage();
     app.getGrouphelper01().checkGroup();
     app.getGrouphelper01().editGroup();
-    app.getGrouphelper01().fillGroupForm(new GroupData("5", "6", "7"));
+    app.getGrouphelper01().fillGroupForm(new GroupData("122", "212", "123"));
     app.getGrouphelper01().updateGroup();
   }
 }

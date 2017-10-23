@@ -8,7 +8,7 @@ public class GroupAdd extends Testbase {
   public void Normtest() {
     app.getNavigationhelper().gotoGroupPage();
     app.getGrouphelper01().initGroupCreate();
-    app.getGrouphelper01().fillGroupForm(new GroupData("49", "123", "213"));
+    app.getGrouphelper01().fillGroupForm(new GroupData("5", "6", "7"));
     app.getGrouphelper01().submitGroupCreation();
     app.getGrouphelper01().returnToGroupPage();
   }
