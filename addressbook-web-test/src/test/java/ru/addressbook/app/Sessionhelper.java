@@ -1,11 +1,12 @@
 package ru.addressbook.app;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Sessionhelper extends Helperbase {
 
-  public Sessionhelper(FirefoxDriver wd) {
+  public Sessionhelper(WebDriver wd) {
     super(wd);
   }
 

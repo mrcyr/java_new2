@@ -1,19 +1,33 @@
 package ru.addressbook.app;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-  FirefoxDriver wd;
-
+  WebDriver wd;
 
   private Contacthelper contacthelper;
   private Sessionhelper sessionhelper;
   private Navigationhelper navigationhelper;
   private Grouphelper01 grouphelper01;
+  private String browser;
+
+  public ApplicationManager(String browser) {
+    this.browser = browser;
+  }
 
   public void init() {
-    wd = new FirefoxDriver();
+    if (browser == org.openqa.selenium.remote.BrowserType.FIREFOX) {
+      wd = new FirefoxDriver();
+    } else if (browser == org.openqa.selenium.remote.BrowserType.CHROME) {
+      wd = new ChromeDriver();
+    } else if (browser == org.openqa.selenium.remote.BrowserType.IE) {
+      wd = new InternetExplorerDriver();
+    }
+
+
     wd.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     grouphelper01 = new Grouphelper01(wd);

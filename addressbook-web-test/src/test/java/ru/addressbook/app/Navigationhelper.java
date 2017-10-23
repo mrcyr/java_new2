@@ -1,12 +1,13 @@
 package ru.addressbook.app;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Navigationhelper {
-  private FirefoxDriver wd;
+  private WebDriver wd;
 
-  public Navigationhelper(FirefoxDriver wd) {
+  public Navigationhelper(WebDriver wd) {
     this.wd = wd;
   }
 
