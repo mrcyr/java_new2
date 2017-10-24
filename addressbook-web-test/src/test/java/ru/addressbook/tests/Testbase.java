@@ -7,7 +7,7 @@ import ru.addressbook.app.ApplicationManager;
 
 public class Testbase {
 
-  protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+  protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
   @BeforeMethod
   public void setUp() throws Exception {

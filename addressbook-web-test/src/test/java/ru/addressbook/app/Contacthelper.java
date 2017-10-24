@@ -1,8 +1,11 @@
 package ru.addressbook.app;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.addressbook.model.ContactData;
 
 public class Contacthelper extends Helperbase {
@@ -11,11 +14,9 @@ public class Contacthelper extends Helperbase {
     super(wd);
   }
 
-  public void gotoHome() {
-    click(By.linkText("home"));
-  }
 
-  public void fillCotactInfo(ContactData contactData) {
+
+  public void fillCotactInfo(ContactData contactData, boolean creation) {
     type("firstname", contactData.getFirstname());
     type("lastname", contactData.getLastname());
     type("nickname", contactData.getNickname());
@@ -26,7 +27,14 @@ public class Contacthelper extends Helperbase {
     click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberOfSelector2() + "]//option[" + contactData.getNumberOfpunkt2() + "]"));
     type("byear", contactData.getYear());
     click(By.xpath("//div[@id='content']/form/input[21]"));
+
+    if (creation) {
+      new Select(wd.findElement(By.name("new group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new group")));
+    }
   }
+
 
   public void addContact() {
 
@@ -49,7 +57,17 @@ public class Contacthelper extends Helperbase {
     click(By.name("update"));
   }
 
+  public void createContact(ContactData contact, boolean b) {
+    addContact();
+    fillCotactInfo(contact, b);
+    gotoHome();
+  }
 
+  public boolean ThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+  }
 
-
+  public void gotoHome() {
+    wd.findElement(By.linkText("home")).click();
+  }
 }

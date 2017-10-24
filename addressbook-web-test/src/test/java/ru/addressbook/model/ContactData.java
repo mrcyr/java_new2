@@ -12,8 +12,9 @@ public class ContactData {
   private final String numberOfSelector2;
   private final String numberOfpunkt2;
   private final String year;
+  private String group;
 
-  public ContactData(String firstname, String lastname, String nickname, String company, String address, String number, String numberofSelector, String numberOfpunkt, String numberOfSelector2, String numberOfpunkt2, String year) {
+  public ContactData(String firstname, String lastname, String nickname, String company, String address, String number, String numberofSelector, String numberOfpunkt, String numberOfSelector2, String numberOfpunkt2, String year, String group) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.nickname = nickname;
@@ -25,6 +26,7 @@ public class ContactData {
     this.numberOfSelector2 = numberOfSelector2;
     this.numberOfpunkt2 = numberOfpunkt2;
     this.year = year;
+    this.group = group;
   }
 
   public String getFirstname() {
@@ -69,5 +71,9 @@ public class ContactData {
 
   public String getYear() {
     return year;
+  }
+
+  public String getGroup() {
+    return group;
   }
 }
