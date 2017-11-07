@@ -25,6 +25,7 @@ public class ContactDelete extends Testbase {
                     "123"),
             false);
   }
+
   app.getContacthelper().checkContact();
   app.getContacthelper().deleteContact();
 
