@@ -1,25 +1,47 @@
 package ru.addressbook.model;
 
 public class GroupData {
-  private final String groupName;
-  private final String groupHeader;
-  private final String groupFooter;
+  private final String Name;
+  private final String Header;
+  private final String Footer;
 
-  public GroupData(String groupName, String groupHeader, String groupFooter) {
-    this.groupName = groupName;
-    this.groupHeader = groupHeader;
-    this.groupFooter = groupFooter;
+  public GroupData(String Name, String Header, String Footer) {
+    this.Name = Name;
+    this.Header = Header;
+    this.Footer = Footer;
   }
 
   public String getGroupName() {
-    return groupName;
+    return Name;
   }
 
   public String getGroupHeader() {
-    return groupHeader;
+    return Header;
   }
 
   public String getGroupFooter() {
-    return groupFooter;
+    return Footer;
+  }
+
+  @Override
+  public String toString() {
+    return "GroupData{" +
+            "Name='" + Name + '\'' +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    GroupData groupData = (GroupData) o;
+
+    return Name != null ? Name.equals(groupData.Name) : groupData.Name == null;
+  }
+
+  @Override
+  public int hashCode() {
+    return Name != null ? Name.hashCode() : 0;
   }
 }
