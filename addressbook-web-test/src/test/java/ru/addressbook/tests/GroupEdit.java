@@ -19,7 +19,7 @@ public class GroupEdit extends Testbase {
     List<GroupData> before = app.getGrouphelper01().getGroupList();
     app.getGrouphelper01().checkGroup(before.size() - 1);
     app.getGrouphelper01().editGroup();
-    GroupData group = new GroupData("122", "212", "123");
+    GroupData group = new GroupData(before.get(before.size()-1).getId(),"122", "212", "123");
     app.getGrouphelper01().fillGroupForm(group);
     app.getGrouphelper01().updateGroup();
     app.getNavigationhelper().gotoGroupPage();
