@@ -1,26 +1,26 @@
 package ru.addressbook.model;
 
 public class GroupData {
-  private final String id;
+  private int id;
   private final String Name;
   private final String Header;
   private final String Footer;
 
   public GroupData(String Name, String Header, String Footer) {
-    this.id = null;
+    this.id = 0;
     this.Name = Name;
     this.Header = Header;
     this.Footer = Footer;
   }
 
-  public GroupData(String id, String Name, String Header, String Footer) {
+  public GroupData(int id, String Name, String Header, String Footer) {
     this.id = id;
     this.Name = Name;
     this.Header = Header;
     this.Footer = Footer;
   }
 
-  public String getId() {
+  public int getId() {
     return id;
   }
 
@@ -35,6 +35,10 @@ public class GroupData {
 
   public String getFooter() {
     return Footer;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   @Override
@@ -52,13 +56,13 @@ public class GroupData {
 
     GroupData groupData = (GroupData) o;
 
-    if (id != null ? !id.equals(groupData.id) : groupData.id != null) return false;
+    if (id != groupData.id) return false;
     return Name != null ? Name.equals(groupData.Name) : groupData.Name == null;
   }
 
   @Override
   public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
+    int result = id;
     result = 31 * result + (Name != null ? Name.hashCode() : 0);
     return result;
   }
