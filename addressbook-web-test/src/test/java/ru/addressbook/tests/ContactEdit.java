@@ -1,7 +1,10 @@
 package ru.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.addressbook.model.ContactData;
+
+import java.util.List;
 
 public class ContactEdit extends Testbase {
 
@@ -12,35 +15,32 @@ public class ContactEdit extends Testbase {
       app.getContacthelper().createContact(new ContactData(
                       "Petr",
                       "Petrov",
-                      "Chetkiy",
-                      "Lala co.",
                       "Tamtam",
                       "123123123",
                       "1",
                       "4",
                       "2",
                       "9",
-                      "1991",
                       "123"),
               false);
     }
-    app.getContacthelper().checkContact();
+    List<ContactData> before = app.getContacthelper().getContactList();
+    app.getContacthelper().checkContact(before.size() - 1);
     app.getContacthelper().editContact();
     app.getContacthelper().fillCotactInfo(new ContactData(
             "1",
             "2",
             "3",
-            "4",
-            "5",
             "6",
             "1",
             "2",
             "2",
             "2",
-            "1980",
             null),
             false);
     app.getContacthelper().updateContact();
-
+    app.getContacthelper().gotoHome();
+    List<ContactData> after = app.getContacthelper().getContactList();
+    Assert.assertEquals(after.size(), before.size());
   }
 }
