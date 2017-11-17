@@ -1,10 +1,8 @@
 package ru.addressbook.app;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.addressbook.model.ContactData;
@@ -81,7 +79,8 @@ public class Contacthelper extends Helperbase {
     for(WebElement element : elements) {
      String lastName = element.findElement(By.xpath("td[2]")).getText();
      String firstName = element.findElement(By.xpath("td[3]")).getText();
-     ContactData contact = new ContactData(firstName,
+     String id = element.findElement(By.tagName("input")).getAttribute("value");
+     ContactData contact = new ContactData(id, firstName,
              lastName,
              null,
              null,

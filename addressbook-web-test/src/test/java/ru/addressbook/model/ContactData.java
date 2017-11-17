@@ -1,6 +1,7 @@
 package ru.addressbook.model;
 
 public class ContactData {
+  private final String id;
   private final String firstname;
   private final String lastname;
   private final String address;
@@ -12,6 +13,7 @@ public class ContactData {
   private String group;
 
   public ContactData(String firstname, String lastname, String address, String number, String numberofSelector, String numberOfpunkt, String numberOfSelector2, String numberOfpunkt2, String group) {
+    this.id = null;
     this.firstname = firstname;
     this.lastname = lastname;
     this.address = address;
@@ -22,6 +24,23 @@ public class ContactData {
     this.numberOfpunkt2 = numberOfpunkt2;
     this.group = group;
   }
+
+
+  public ContactData(String id, String firstname, String lastname, String address, String number, String numberofSelector, String numberOfpunkt, String numberOfSelector2, String numberOfpunkt2, String group) {
+    this.id = id;
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.address = address;
+    this.number = number;
+    this.numberofSelector = numberofSelector;
+    this.numberOfpunkt = numberOfpunkt;
+    this.numberOfSelector2 = numberOfSelector2;
+    this.numberOfpunkt2 = numberOfpunkt2;
+    this.group = group;
+  }
+
+
+  public String getId() { return id; }
 
   public String getFirstname() {
     return firstname;
@@ -61,7 +80,8 @@ public class ContactData {
   @Override
   public String toString() {
     return "ContactData{" +
-            "firstname='" + firstname + '\'' +
+            "id='" + id + '\'' +
+            ", firstname='" + firstname + '\'' +
             ", lastname='" + lastname + '\'' +
             '}';
   }
@@ -73,13 +93,15 @@ public class ContactData {
 
     ContactData that = (ContactData) o;
 
+    if (id != null ? !id.equals(that.id) : that.id != null) return false;
     if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
     return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
   }
 
   @Override
   public int hashCode() {
-    int result = firstname != null ? firstname.hashCode() : 0;
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
     result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
     return result;
   }
