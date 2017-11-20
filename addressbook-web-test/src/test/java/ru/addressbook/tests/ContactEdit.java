@@ -5,12 +5,11 @@ import org.testng.annotations.Test;
 import ru.addressbook.model.ContactData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactEdit extends Testbase {
 
-  @Test
+  @Test(enabled = false)
   public void contactEditTest() {
     app.getNavigationhelper().gotoHomePage();
     if (! app.getContacthelper().ThereAContact()) {

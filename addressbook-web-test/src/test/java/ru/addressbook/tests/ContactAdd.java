@@ -9,7 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 
 public class ContactAdd extends Testbase {
-  @Test
+
+  @Test(enabled = false)
   public void Contact() {
     List<ContactData> before = app.getContacthelper().getContactList();
     ContactData contacts = new ContactData(
