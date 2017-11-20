@@ -14,20 +14,14 @@ public class ContactDelete extends Testbase {
   public void ensurePrecondition(){
     app.goTo().home();
     if (app.contact().list().size() == 0) {
-      app.contact().create(new ContactData(
-                      "Petr",
-                      "Petrov",
-                      "Chetkiy",
-                      "Lala co.",
-                      "1",
-                      "3",
-                      "2",
-                      "5",
-                      "test"
-                      ), false);
+      app.contact().create(new ContactData()
+              .withFirstname("Петя").withLastname("Иванов").withAddress("Москва")
+              .withNumber("123123123").withEmail("sfdfdf@ssdfwdf.ty").withNumberofSelector("2").withNumberOfpunkt("1")
+              .withNumberOfSelector2("2").withNumberOfpunkt2("2").withGroup("test"),
+              false);
     }
   }
-  @Test(enabled = false)
+  @Test(enabled = true)
   public void contactDeleteTest() {
     List<ContactData> before = app.contact().list();
     int index = before.size() - 1;

@@ -1,24 +1,10 @@
 package ru.addressbook.model;
 
 public class GroupData {
-  private int id;
-  private final String Name;
-  private final String Header;
-  private final String Footer;
-
-  public GroupData(String Name, String Header, String Footer) {
-    this.id = Integer.MAX_VALUE;
-    this.Name = Name;
-    this.Header = Header;
-    this.Footer = Footer;
-  }
-
-  public GroupData(int id, String Name, String Header, String Footer) {
-    this.id = id;
-    this.Name = Name;
-    this.Header = Header;
-    this.Footer = Footer;
-  }
+  private int id = Integer.MAX_VALUE;
+  private String Name;
+  private String Header;
+  private String Footer;
 
   public int getId() {
     return id;
@@ -37,8 +23,21 @@ public class GroupData {
     return Footer;
   }
 
-  public void setId(int id) {
+  public GroupData withId(int id) {
     this.id = id;
+    return this;
+  }
+  public GroupData withName(String name) {
+    Name = name;
+    return this;
+  }
+  public GroupData withHeader(String header) {
+    Header = header;
+    return this;
+  }
+  public GroupData withFooter(String footer) {
+    Footer = footer;
+    return this;
   }
 
   @Override

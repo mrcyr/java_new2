@@ -21,6 +21,7 @@ public class Contacthelper extends Helperbase {
     type("lastname", contactData.getLastname());
     type("address", contactData.getAddress());
     type("mobile", contactData.getNumber());
+    type("email", contactData.getEmail());
     click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberofSelector() + "]//option[" + contactData.getNumberOfpunkt() + "]"));
     click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberOfSelector2() + "]//option[" + contactData.getNumberOfpunkt2() + "]"));
     click(By.xpath("//div[@id='content']/form/input[21]"));
@@ -86,15 +87,7 @@ public class Contacthelper extends Helperbase {
      String lastName = element.findElement(By.xpath("td[2]")).getText();
      String firstName = element.findElement(By.xpath("td[3]")).getText();
      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-     ContactData contact = new ContactData(id, firstName, lastName,
-             null,
-             null,
-             null,
-             null,
-             null,
-             null,
-             null);
-     contacts.add(contact);
+      contacts.add(new ContactData().withId(id).withFirstname(firstName).withLastname(lastName));
     }
     return contacts;
   }

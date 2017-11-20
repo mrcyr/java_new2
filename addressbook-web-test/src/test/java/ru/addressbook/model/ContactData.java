@@ -1,43 +1,17 @@
 package ru.addressbook.model;
 
 public class ContactData {
-  private int id;
-  private final String firstname;
-  private final String lastname;
-  private final String address;
-  private final String number;
-  private final String numberofSelector;
-  private final String numberOfpunkt;
-  private final String numberOfSelector2;
-  private final String numberOfpunkt2;
+  private int id = Integer.MAX_VALUE;
+  private String firstname;
+  private String lastname;
+  private String address;
+  private String number;
+  private String email;
+  private String numberofSelector;
+  private String numberOfpunkt;
+  private String numberOfSelector2;
+  private String numberOfpunkt2;
   private String group;
-
-  public ContactData(String firstname, String lastname, String address, String number, String numberofSelector, String numberOfpunkt, String numberOfSelector2, String numberOfpunkt2, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.address = address;
-    this.number = number;
-    this.numberofSelector = numberofSelector;
-    this.numberOfpunkt = numberOfpunkt;
-    this.numberOfSelector2 = numberOfSelector2;
-    this.numberOfpunkt2 = numberOfpunkt2;
-    this.group = group;
-  }
-
-
-  public ContactData(int id, String firstname, String lastname, String address, String number, String numberofSelector, String numberOfpunkt, String numberOfSelector2, String numberOfpunkt2, String group) {
-    this.id = id;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.address = address;
-    this.number = number;
-    this.numberofSelector = numberofSelector;
-    this.numberOfpunkt = numberOfpunkt;
-    this.numberOfSelector2 = numberOfSelector2;
-    this.numberOfpunkt2 = numberOfpunkt2;
-    this.group = group;
-  }
 
 
   public int getId() { return id; }
@@ -56,6 +30,10 @@ public class ContactData {
 
   public String getNumber() {
     return number;
+  }
+
+  public String getEmail() {
+    return email;
   }
 
   public String getNumberofSelector() {
@@ -77,8 +55,60 @@ public class ContactData {
     return group;
   }
 
-  public void setId(int id) {
+  public ContactData withId(int id) {
+
     this.id = id;
+    return this;
+  }
+
+  public ContactData withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withNumber(String number) {
+    this.number = number;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withNumberofSelector(String numberofSelector) {
+    this.numberofSelector = numberofSelector;
+    return this;
+  }
+
+  public ContactData withNumberOfpunkt(String numberOfpunkt) {
+    this.numberOfpunkt = numberOfpunkt;
+    return this;
+  }
+
+  public ContactData withNumberOfSelector2(String numberOfSelector2) {
+    this.numberOfSelector2 = numberOfSelector2;
+    return this;
+  }
+
+  public ContactData withNumberOfpunkt2(String numberOfpunkt2) {
+    this.numberOfpunkt2 = numberOfpunkt2;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
   }
 
   @Override
