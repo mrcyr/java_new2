@@ -16,8 +16,6 @@ public class Contacthelper extends Helperbase {
     super(wd);
   }
 
-
-
   public void fillCotactInfo(ContactData contactData, boolean creation) {
     type("firstname", contactData.getFirstname());
     type("lastname", contactData.getLastname());
@@ -26,14 +24,12 @@ public class Contacthelper extends Helperbase {
     click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberofSelector() + "]//option[" + contactData.getNumberOfpunkt() + "]"));
     click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberOfSelector2() + "]//option[" + contactData.getNumberOfpunkt2() + "]"));
     click(By.xpath("//div[@id='content']/form/input[21]"));
-
     if (creation) {
       new Select(wd.findElement(By.name("new group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new group")));
     }
   }
-
 
   public void addContact() {
 
@@ -46,18 +42,28 @@ public class Contacthelper extends Helperbase {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     wd.switchTo().alert().accept();
   }
-
   public void editContact(int index){
     click(By.xpath("//table[@id='maintable']/tbody/tr[" + (index+2) + "]/td[8]/a/img"));;
   }
-
   public void updateContact() {
     click(By.name("update"));
   }
 
-  public void createContact(ContactData contact, boolean b) {
+  public void create(ContactData contact, boolean b) {
     addContact();
     fillCotactInfo(contact, b);
+    gotoHome();
+  }
+  public void delete(int index) {
+    checkContact(index);
+    deleteContact();
+    gotoHome();
+  }
+  public void modify(int index, ContactData contacts) {
+    checkContact(index);
+    editContact(index);
+    fillCotactInfo(contacts,false);
+    updateContact();
     gotoHome();
   }
 
@@ -73,7 +79,7 @@ public class Contacthelper extends Helperbase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<>();
     List<WebElement> elements = wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[@name='entry']"));
     for(WebElement element : elements) {

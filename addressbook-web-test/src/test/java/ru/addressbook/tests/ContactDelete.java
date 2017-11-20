@@ -2,6 +2,7 @@ package ru.addressbook.tests;
 
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.addressbook.model.ContactData;
 
@@ -9,11 +10,11 @@ import java.util.List;
 
 public class ContactDelete extends Testbase {
 
-  @Test(enabled = false)
-  public void contactDeleteTest() {
-    app.getNavigationhelper().gotoHomePage();
-    if (!app.getContacthelper().ThereAContact()) {
-      app.getContacthelper().createContact(new ContactData(
+  @BeforeMethod
+  public void ensurePrecondition(){
+    app.goTo().home();
+    if (app.contact().list().size() == 0) {
+      app.contact().create(new ContactData(
                       "Petr",
                       "Petrov",
                       "Chetkiy",
@@ -23,21 +24,17 @@ public class ContactDelete extends Testbase {
                       "2",
                       "5",
                       "test"
-              ),
-              false);
+                      ), false);
     }
-    List<ContactData> before = app.getContacthelper().getContactList();
-    app.getContacthelper().checkContact(before.size() - 1);
-    app.getContacthelper().deleteContact();
-    app.getNavigationhelper().gotoHomePage();
-    List<ContactData> after = app.getContacthelper().getContactList();
-    Assert.assertEquals(after.size(), before.size() - 1);
-    before.remove(before.size() - 1);
-    Assert.assertEquals(before, after);
-
-
-
   }
-
-
+  @Test(enabled = false)
+  public void contactDeleteTest() {
+    List<ContactData> before = app.contact().list();
+    int index = before.size() - 1;
+    app.contact().delete(index);
+    List<ContactData> after = app.contact().list();
+    Assert.assertEquals(after.size(), before.size() - 1);
+    before.remove(index);
+    Assert.assertEquals(before, after);
+  }
 }
