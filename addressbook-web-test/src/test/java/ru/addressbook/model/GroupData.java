@@ -14,7 +14,6 @@ public class GroupData {
     return Name;
   }
 
-
   public String getHeader() {
     return Header;
   }
@@ -55,11 +54,14 @@ public class GroupData {
 
     GroupData groupData = (GroupData) o;
 
+    if (id != groupData.id) return false;
     return Name != null ? Name.equals(groupData.Name) : groupData.Name == null;
   }
 
   @Override
   public int hashCode() {
-    return Name != null ? Name.hashCode() : 0;
+    int result = id;
+    result = 31 * result + (Name != null ? Name.hashCode() : 0);
+    return result;
   }
 }

@@ -16,7 +16,6 @@ public class ContactAdd extends Testbase {
             .withFirstname("Саша").withLastname("Иванов").withAddress("Питер")
             .withNumber("123123123").withEmail("pey@mail.ru").withNumberofSelector("2").withNumberOfpunkt("1")
             .withNumberOfSelector2("2").withNumberOfpunkt2("2").withGroup("lala");
-
     app.contact().create(contacts,false);
     List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size() + 1);

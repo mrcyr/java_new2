@@ -39,13 +39,12 @@ public class Contacthelper extends Helperbase {
   public void checkContact(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
+
   public void deleteContact() {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     wd.switchTo().alert().accept();
   }
-  public void editContact(int index){
-    click(By.xpath("//table[@id='maintable']/tbody/tr[" + (index+2) + "]/td[8]/a/img"));;
-  }
+  public void editContact(int index){ click(By.xpath("//table[@id='maintable']/tbody/tr[" + (index+2) + "]/td[8]/a/img")); }
   public void updateContact() {
     click(By.name("update"));
   }
