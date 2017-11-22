@@ -17,7 +17,7 @@ public class GroupEdit extends Testbase {
   }
 
   @Test
-  public void testEdit() {
+  public void GroupEditTest() {
     Set<GroupData> before = app.group().all();
     GroupData modifedGroup = before.iterator().next();
     GroupData group = new GroupData()

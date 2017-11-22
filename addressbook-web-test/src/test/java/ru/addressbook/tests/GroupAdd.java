@@ -8,7 +8,7 @@ import java.util.Set;
 public class GroupAdd extends Testbase {
 
   @Test
-  public void ContactAddTest() {
+  public void GroupAddTest() {
     app.goTo().groupPage();
     Set<GroupData> before = app.group().all();
     GroupData group = new GroupData().withName("test2").withFooter("test2").withHeader("test2");
