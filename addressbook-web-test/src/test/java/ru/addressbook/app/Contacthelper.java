@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.addressbook.model.ContactData;
+import ru.addressbook.model.Contacts;
 
 import java.util.HashSet;
 import java.util.List;
@@ -49,8 +50,9 @@ public class Contacthelper extends Helperbase {
     wd.switchTo().alert().accept();
   }
   public void editContact(int id){
+    click((By.cssSelector("a[href='edit.php?id=" + id + "']")));
+  }
 
-    click((By.cssSelector("a[href='edit.php?id=" + id + "']"))); }
   public void updateContact()
   {
     click(By.name("update"));
@@ -88,8 +90,8 @@ public class Contacthelper extends Helperbase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public Set<ContactData> all() {
-    Set<ContactData> contacts = new HashSet<>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> elements = wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[@name='entry']"));
     for(WebElement element : elements) {
       String lastName = element.findElement(By.xpath("td[2]")).getText();
