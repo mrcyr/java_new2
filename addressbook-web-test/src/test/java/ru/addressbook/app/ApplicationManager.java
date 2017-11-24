@@ -30,7 +30,6 @@ public class ApplicationManager {
       wd = new InternetExplorerDriver();
     }
 
-
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     grouphelper01 = new Grouphelper01(wd);
