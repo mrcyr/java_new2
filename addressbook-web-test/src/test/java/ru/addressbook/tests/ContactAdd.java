@@ -18,8 +18,8 @@ public class ContactAdd extends Testbase {
             .withNumber("123123123").withEmail("pey@mail.ru").withNumberofSelector("2").withNumberOfpunkt("1")
             .withNumberOfSelector2("2").withNumberOfpunkt2("2");
     app.contact().create(contacts);
+    assertEquals(app.contact().count(), before.size() + 1);
     Contacts after = app.contact().all();
-    assertEquals(after.size(), before.size() + 1);
     assertThat(after, equalTo(
             before.withAdded(contacts.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }

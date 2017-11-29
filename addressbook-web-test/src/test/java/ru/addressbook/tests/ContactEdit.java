@@ -1,14 +1,10 @@
 package ru.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
-import org.testng.Assert;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.addressbook.model.ContactData;
 import ru.addressbook.model.Contacts;
-
-import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -33,8 +29,8 @@ public class ContactEdit extends Testbase {
             .withNumber("123123123").withEmail("dfsdf@dfdf.ty").withNumberofSelector("2").withNumberOfpunkt("1")
             .withNumberOfSelector2("2").withNumberOfpunkt2("2").withGroup("test");
     app.contact().modify(contacts);
+    assertEquals(app.contact().count(), before.size());
     Contacts after = app.contact().all();
-    assertEquals(after.size(), before.size());
     assertThat(after, equalTo(before.withOut(modifedContact).withAdded(contacts)));
   }
 }

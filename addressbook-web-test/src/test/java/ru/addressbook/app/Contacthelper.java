@@ -90,7 +90,7 @@ public class Contacthelper extends Helperbase {
     wd.findElement(By.linkText("home")).click();
   }
 
-  public int getContactCount() {
+  public int count() {
     return wd.findElements(By.name("selected[]")).size();
   }
 
