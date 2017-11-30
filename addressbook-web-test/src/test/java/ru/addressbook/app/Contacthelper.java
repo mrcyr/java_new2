@@ -77,22 +77,25 @@ public class Contacthelper extends Helperbase {
     contactCache = null;
     gotoHome();
   }
-
   public boolean ThereAContact() {
+
     return isElementPresent(By.name("selected[]"));
   }
 
   public void gotoHome() {
+
     wd.findElement(By.linkText("home")).click();
   }
 
   public int count() {
+
     return wd.findElements(By.name("selected[]")).size();
   }
 
   private Contacts contactCache = null;
 
   public Contacts all() {
+
     if(contactCache != null) {
       return new Contacts(contactCache);
     }
@@ -101,15 +104,16 @@ public class Contacthelper extends Helperbase {
     for(WebElement element : elements) {
       String lastName = element.findElement(By.xpath("td[2]")).getText();
       String firstName = element.findElement(By.xpath("td[3]")).getText();
+      String[] phones = element.findElement(By.xpath("td[6]")).getText().split("\n");
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      contactCache.add(new ContactData().withId(id).withFirstname(firstName).withLastname(lastName));
+      contactCache.add(new ContactData().withId(id).withFirstname(firstName).withLastname(lastName)
+              .withHomeNumber(phones[0]).withMobNumber(phones[1]));
     }
     return contactCache;
   }
-
   public ContactData infoFromEditForm(ContactData contact){
     initContactModificationById(contact.getId());
-    String firstname = wd.findElement(By.name("fistname")).getAttribute("value");
+    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
     String mob = wd.findElement(By.name("mobile")).getAttribute("value");
     String home = wd.findElement(By.name("home")).getAttribute("value");
@@ -119,7 +123,6 @@ public class Contacthelper extends Helperbase {
   }
 
   private void initContactModificationById (int id) {
-
     wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 }
