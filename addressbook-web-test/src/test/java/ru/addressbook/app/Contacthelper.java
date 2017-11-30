@@ -3,15 +3,10 @@ package ru.addressbook.app;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.addressbook.model.ContactData;
 import ru.addressbook.model.Contacts;
-import ru.addressbook.model.Groups;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Contacthelper extends Helperbase {
 
@@ -23,7 +18,8 @@ public class Contacthelper extends Helperbase {
     type("firstname", contactData.getFirstname());
     type("lastname", contactData.getLastname());
     type("address", contactData.getAddress());
-    type("mobile", contactData.getNumber());
+    type("mobile", contactData.getMobNumber());
+    type("home", contactData.getHomeNumber());
     type("email", contactData.getEmail());
     click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberofSelector() + "]//option[" + contactData.getNumberOfpunkt() + "]"));
     click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberOfSelector2() + "]//option[" + contactData.getNumberOfpunkt2() + "]"));
@@ -109,5 +105,21 @@ public class Contacthelper extends Helperbase {
       contactCache.add(new ContactData().withId(id).withFirstname(firstName).withLastname(lastName));
     }
     return contactCache;
+  }
+
+  public ContactData infoFromEditForm(ContactData contact){
+    initContactModificationById(contact.getId());
+    String firstname = wd.findElement(By.name("fistname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String mob = wd.findElement(By.name("mobile")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withMobNumber(mob)
+            .withHomeNumber(home);
+  }
+
+  private void initContactModificationById (int id) {
+
+    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 }

@@ -5,7 +5,8 @@ public class ContactData {
   private String firstname;
   private String lastname;
   private String address;
-  private String number;
+  private String mobnumber;
+  private String homenumber;
   private String email;
   private String numberofSelector;
   private String numberOfpunkt;
@@ -28,8 +29,12 @@ public class ContactData {
     return address;
   }
 
-  public String getNumber() {
-    return number;
+  public String getMobNumber() {
+    return mobnumber;
+  }
+
+  public String getHomeNumber() {
+    return homenumber;
   }
 
   public String getEmail() {
@@ -76,8 +81,13 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withNumber(String number) {
-    this.number = number;
+  public ContactData withMobNumber(String mobnumber) {
+    this.mobnumber = mobnumber;
+    return this;
+  }
+
+  public ContactData withHomeNumber(String homenumber) {
+    this.homenumber = homenumber;
     return this;
   }
 

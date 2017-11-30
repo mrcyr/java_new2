@@ -1,12 +1,10 @@
 package ru.addressbook.tests;
 
-
 import org.testng.annotations.Test;
 import ru.addressbook.model.GroupData;
 import ru.addressbook.model.Groups;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.*;
-
 
 public class GroupAdd extends Testbase {
 
@@ -21,7 +19,6 @@ public class GroupAdd extends Testbase {
       Groups after = app.group().all();
       assertThat(after, equalTo(
               before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-
   }
   @Test
   public void BadGroupAddTest() {
@@ -36,7 +33,4 @@ public class GroupAdd extends Testbase {
             before));
 
   }
-
-
-
 }
