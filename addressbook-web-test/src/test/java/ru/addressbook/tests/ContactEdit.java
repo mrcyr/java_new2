@@ -16,7 +16,7 @@ public class ContactEdit extends Testbase {
     if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData()
                       .withFirstname("Петя").withLastname("Иванов").withAddress("Москва")
-                      .withMobNumber("123123123").withEmail("dsfsdf@dsfdsf.ru").withNumberofSelector("2").withNumberOfpunkt("1")
+                      .withMobNumber("123123123").withEmail1("dsfsdf@dsfdsf.ru").withNumberofSelector("2").withNumberOfpunkt("1")
                       .withNumberOfSelector2("2").withNumberOfpunkt2("2"));
     }
   }
@@ -26,7 +26,7 @@ public class ContactEdit extends Testbase {
     ContactData modifedContact = before.iterator().next();
     ContactData contacts = new ContactData().withId(modifedContact.getId())
             .withFirstname("ваня").withLastname("Петров").withAddress("Москва")
-            .withHomeNumber("123123123").withEmail("dfsdf@dfdf.ty").withNumberofSelector("2").withNumberOfpunkt("1")
+            .withHomeNumber("123123123").withEmail1("dfsdf@dfdf.ty").withNumberofSelector("2").withNumberOfpunkt("1")
             .withNumberOfSelector2("2").withNumberOfpunkt2("2").withGroup("test");
     app.contact().modify(contacts);
     assertEquals(app.contact().count(), before.size());

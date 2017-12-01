@@ -5,9 +5,13 @@ public class ContactData {
   private String firstname;
   private String lastname;
   private String address;
+  private String fullAddress;
   private String mobnumber;
   private String homenumber;
-  private String email;
+  private String allPhones;
+  private String email1;
+  private String email2;
+  private String allEmails;
   private String numberofSelector;
   private String numberOfpunkt;
   private String numberOfSelector2;
@@ -29,6 +33,10 @@ public class ContactData {
     return address;
   }
 
+  public String getFullAddress() {
+    return fullAddress;
+  }
+
   public String getMobNumber() {
     return mobnumber;
   }
@@ -37,8 +45,19 @@ public class ContactData {
     return homenumber;
   }
 
-  public String getEmail() {
-    return email;
+  public String getAllPhones() {
+    return allPhones;
+  }
+  public String getEmail1() {
+    return email1;
+  }
+
+  public String getEmail2() {
+    return email2;
+  }
+
+  public String getAllEmails() {
+    return allEmails;
   }
 
   public String getNumberofSelector() {
@@ -81,6 +100,11 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withFullAddress(String fullAddress) {
+    this.fullAddress = fullAddress;
+    return this;
+  }
+
   public ContactData withMobNumber(String mobnumber) {
     this.mobnumber = mobnumber;
     return this;
@@ -91,8 +115,23 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withEmail(String email) {
-    this.email = email;
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  public ContactData withEmail1(String email1) {
+    this.email1 = email1;
+    return this;
+  }
+
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
     return this;
   }
 
