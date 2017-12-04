@@ -67,7 +67,7 @@ public class ContactForm extends Testbase {
             contact.getEmail2())
             .stream()
             .filter((s) -> !s.equals(""))
-            .map(ContactFullInfo::cleaned)
+            .map(ContactForm::cleaned)
             .collect(Collectors.joining(""));
 
   }
