@@ -1,5 +1,7 @@
 package ru.addressbook.model;
 
+import java.io.File;
+
 public class ContactData {
   private int id = Integer.MAX_VALUE;
   private String firstname;
@@ -12,12 +14,9 @@ public class ContactData {
   private String email1;
   private String email2;
   private String allEmails;
-  private String numberofSelector;
-  private String numberOfpunkt;
-  private String numberOfSelector2;
-  private String numberOfpunkt2;
   private String group;
   private String allDetails;
+  private File photo;
 
 
   public int getId() { return id; }
@@ -61,27 +60,16 @@ public class ContactData {
     return allEmails;
   }
 
-  public String getNumberofSelector() {
-    return numberofSelector;
-  }
-
-  public String getNumberOfpunkt() {
-    return numberOfpunkt;
-  }
-
-  public String getNumberOfSelector2() {
-    return numberOfSelector2;
-  }
-
-  public String getNumberOfpunkt2() {
-    return numberOfpunkt2;
-  }
   public String getGroup() {
     return group;
   }
 
   public String getAllDetails() {
     return allDetails;
+  }
+
+  public File getPhoto() {
+    return photo;
   }
 
   public ContactData withId(int id) {
@@ -140,26 +128,6 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withNumberofSelector(String numberofSelector) {
-    this.numberofSelector = numberofSelector;
-    return this;
-  }
-
-  public ContactData withNumberOfpunkt(String numberOfpunkt) {
-    this.numberOfpunkt = numberOfpunkt;
-    return this;
-  }
-
-  public ContactData withNumberOfSelector2(String numberOfSelector2) {
-    this.numberOfSelector2 = numberOfSelector2;
-    return this;
-  }
-
-  public ContactData withNumberOfpunkt2(String numberOfpunkt2) {
-    this.numberOfpunkt2 = numberOfpunkt2;
-    return this;
-  }
-
   public ContactData withGroup(String group) {
     this.group = group;
     return this;
@@ -167,6 +135,11 @@ public class ContactData {
 
   public ContactData withAllDetails(String allDetails) {
     this.allDetails = allDetails;
+    return this;
+  }
+
+  public ContactData withPhoto(File photo) {
+    this.photo = photo;
     return this;
   }
 

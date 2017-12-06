@@ -22,9 +22,9 @@ public class Contacthelper extends Helperbase {
     type("home", contactData.getHomeNumber());
     type("email", contactData.getEmail1());
     type("email2", contactData.getEmail2());
-    click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberofSelector() + "]//option[" + contactData.getNumberOfpunkt() + "]"));
-    click(By.xpath("//div[@id='content']/form/select[" + contactData.getNumberOfSelector2() + "]//option[" + contactData.getNumberOfpunkt2() + "]"));
+    attach("photo", contactData.getPhoto());
     click(By.xpath("//div[@id='content']/form/input[21]"));
+
 
     //new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     /*if (creation) {
