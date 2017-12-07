@@ -5,7 +5,6 @@ import ru.addressbook.model.ContactData;
 import ru.addressbook.model.Contacts;
 
 import java.io.File;
-
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 import static org.testng.Assert.*;
