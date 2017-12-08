@@ -7,7 +7,10 @@ repositories {
 dependencies {
     testCompile group: 'org.testng', name: 'testng', version: '6.10'
     compile 'org.seleniumhq.selenium:selenium-java:3.6.0'
-    //compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.53.1'
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
-    сompile 'com.beust:jcommander:1.72'
+    compile group: 'com.beust', name: 'jcommander', version: '1.72'
+    compile 'com.thoughtworks.xstream:xstream:1.4.10'
+
+
+
 }

@@ -4,8 +4,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.addressbook.model.ContactData;
 import ru.addressbook.model.Contacts;
-import ru.addressbook.model.GroupData;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
