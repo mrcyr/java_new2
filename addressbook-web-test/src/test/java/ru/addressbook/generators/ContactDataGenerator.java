@@ -71,16 +71,16 @@ public class ContactDataGenerator {
 
   private void saveAsCSV(List<ContactData> contacts, File file) throws IOException {
 
-    Writer writer = new FileWriter(file);
-    for (ContactData contact : contacts) {
-      writer.write(String.format("%s;%s;%s;%s;%s;\n",
-              contact.getFirstname(),
-              contact.getLastname(),
-              contact.getAddress(),
-              contact.getMobNumber(),
-              contact.getEmail1()));
+    try(Writer writer = new FileWriter(file)){
+      for (ContactData contact : contacts) {
+        writer.write(String.format("%s;%s;%s;%s;%s;\n",
+                contact.getFirstname(),
+                contact.getLastname(),
+                contact.getAddress(),
+                contact.getMobNumber(),
+                contact.getEmail1()));
+      }
     }
-    writer.close();
   }
 
   private void saveAsXML(List<ContactData> contacts, File file) throws IOException {
@@ -89,17 +89,17 @@ public class ContactDataGenerator {
     xstream.processAnnotations(ContactData.class);
     xstream.alias("contact", ContactData.class);
     String xml = xstream.toXML(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(xml);
-    writer.close();
+    try(Writer writer = new FileWriter(file)){
+      writer.write(xml);
+    }
   }
 
   private void saveAsJSON(List<ContactData> contacts, File file) throws IOException {
 
     Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
     String json = gson.toJson(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(json);
-    writer.close();
+    try(Writer writer = new FileWriter(file)){
+      writer.write(json);
+    }
   }
 }
