@@ -1,0 +1,23 @@
+[
+  {
+    "firstname": "Ваня 0",
+    "lastname": "Петров 0",
+    "address": "Питер 0",
+    "mobnumber": "12312312313 0",
+    "email1": "1230@.ru"
+  },
+  {
+    "firstname": "Ваня 1",
+    "lastname": "Петров 1",
+    "address": "Питер 1",
+    "mobnumber": "12312312313 1",
+    "email1": "1231@.ru"
+  },
+  {
+    "firstname": "Ваня 2",
+    "lastname": "Петров 2",
+    "address": "Питер 2",
+    "mobnumber": "12312312313 2",
+    "email1": "1232@.ru"
+  }
+]

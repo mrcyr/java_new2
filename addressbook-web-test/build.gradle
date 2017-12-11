@@ -4,6 +4,7 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     testCompile group: 'org.testng', name: 'testng', version: '6.10'
     compile 'org.seleniumhq.selenium:selenium-java:3.6.0'
@@ -11,8 +12,16 @@ dependencies {
     compile group: 'com.beust', name: 'jcommander', version: '1.72'
     compile 'com.thoughtworks.xstream:xstream:1.4.10'
     compile 'com.google.code.gson:gson:2.8.2'
+}
 
+task testGroups(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+}
 
-
-
+task testContacts(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-contacts.xml'
+    }
 }

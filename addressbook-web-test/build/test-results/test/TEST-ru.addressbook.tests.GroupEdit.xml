@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.addressbook.tests.GroupEdit" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-12-11T14:10:39" hostname="DESKTOP-KH3K3KQ" time="5.395">
+  <properties/>
+  <testcase name="GroupEditTest" classname="ru.addressbook.tests.GroupEdit" time="5.395"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.addressbook.tests.GroupAdd" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-12-11T14:10:13" hostname="DESKTOP-KH3K3KQ" time="21.414">
+  <properties/>
+  <testcase name="GroupAddTest[0](GroupData{id='2147483647', Name='test 0'})" classname="ru.addressbook.tests.GroupAdd" time="10.419"/>
+  <testcase name="GroupAddTest[1](GroupData{id='2147483647', Name='test 1'})" classname="ru.addressbook.tests.GroupAdd" time="5.504"/>
+  <testcase name="GroupAddTest[2](GroupData{id='2147483647', Name='test 2'})" classname="ru.addressbook.tests.GroupAdd" time="5.49"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
