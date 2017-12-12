@@ -75,6 +75,7 @@ public class ContactAdd extends Testbase {
 
   @Test(dataProvider = "validContactsJSON")
   public void ContactAddTest(ContactData contacts) {
+
     app.goTo().home();
     Contacts before = app.contact().all();
     File photo = new File("src/test/resources/7Lj6myuF0cA.jpg");

@@ -1,22 +1,22 @@
 [
   {
-    "firstname": "Ваня 0",
-    "lastname": "Петров 0",
-    "address": "Питер 0",
+    "firstname": "IVAN 0",
+    "lastname": "PETROV 0",
+    "address": "PITER 0",
     "mobnumber": "12312312313 0",
     "email1": "1230@.ru"
   },
   {
-    "firstname": "Ваня 1",
-    "lastname": "Петров 1",
-    "address": "Питер 1",
+    "firstname": "IVAN 1",
+    "lastname": "PETROV 1",
+    "address": "PITER 1",
     "mobnumber": "12312312313 1",
     "email1": "1231@.ru"
   },
   {
-    "firstname": "Ваня 2",
-    "lastname": "Петров 2",
-    "address": "Питер 2",
+    "firstname": "IVAN 2",
+    "lastname": "PETROV 2",
+    "address": "PITER 2",
     "mobnumber": "12312312313 2",
     "email1": "1232@.ru"
   }

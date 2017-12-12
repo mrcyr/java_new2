@@ -7,7 +7,8 @@ import ru.addressbook.app.ApplicationManager;
 
 public class Testbase {
 
-  protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+  protected static final ApplicationManager app
+          = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
   @BeforeSuite
   public void setUp() throws Exception {

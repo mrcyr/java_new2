@@ -16,12 +16,12 @@ public class ContactForm extends Testbase {
     app.goTo().home();
     if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData()
-              .withFirstname("Петя").withLastname("Иванов").withAddress("Москва")
+              .withFirstname("dsdsd").withLastname("dsfdsf").withAddress("dfsdfdsf")
               .withHomeNumber("123123123").withMobNumber("213123123").withEmail1("sfdfdf@ssdfwdf.ty"));
     }
   }
 
-  @Test
+  @Test(enabled = false)
   public void testContactPhone() {
     app.goTo().home();
     ContactData contact = app.contact().all().iterator().next();
@@ -29,7 +29,7 @@ public class ContactForm extends Testbase {
     assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
   }
 
-  @Test
+  @Test(enabled = false)
   public void testContactEmail () {
     app.goTo().home();
     ContactData contact = app.contact().all().iterator().next();
@@ -37,7 +37,7 @@ public class ContactForm extends Testbase {
     assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactInfoFromEditForm)));
   }
 
-  @Test
+  @Test(enabled = false)
   public void testContactAddress() {
     app.goTo().home();
     ContactData contact = app.contact().all().iterator().next();
@@ -45,7 +45,7 @@ public class ContactForm extends Testbase {
     assertThat(contact.getFullAddress(), equalTo(contactInfoFromEditForm.getAddress()));
   }
 
-  @Test
+  @Test(enabled = false)
   public void testContactDetailsForm() {
     app.goTo().home();
     ContactData contact = app.contact().all().iterator().next();

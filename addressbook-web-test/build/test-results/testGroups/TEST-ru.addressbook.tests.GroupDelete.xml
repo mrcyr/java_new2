@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.addressbook.tests.GroupDelete" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-12-12T12:13:33" hostname="DESKTOP-KH3K3KQ" time="5.574">
+  <properties/>
+  <testcase name="testGroupDelete" classname="ru.addressbook.tests.GroupDelete" time="5.574"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

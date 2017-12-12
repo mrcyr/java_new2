@@ -59,9 +59,9 @@ public class ContactDataGenerator {
     for (int i = 0; i < count; i++) {
 
       contacts.add(new ContactData()
-              .withFirstname(String.format("Ваня %s", i))
-              .withLastname(String.format("Петров %s", i))
-              .withAddress(String.format("Питер %s", i))
+              .withFirstname(String.format("IVAN %s", i))
+              .withLastname(String.format("PETROV %s", i))
+              .withAddress(String.format("PITER %s", i))
               .withMobNumber(String.format("12312312313 %s", i))
               .withEmail1(String.format("123%s@.ru", i)));
 
