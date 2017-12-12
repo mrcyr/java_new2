@@ -17,3 +17,4 @@ project/src/main/java/ru/project/programm.java
 project/build.gradle
 .idea/vcs.xml
 project/src/main/java/ru/project/programm.java
+*.log

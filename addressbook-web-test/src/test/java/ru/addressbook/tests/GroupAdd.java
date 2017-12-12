@@ -69,15 +69,14 @@ public class GroupAdd extends Testbase {
 
   @Test(dataProvider = "validGroupsJSON")
   public void GroupAddTest(GroupData group) {
-
-      app.goTo().groupPage();
-      Groups before = app.group().all();
-      app.group().create(group);
-      assertThat(app.group().count(), equalTo(before.size() + 1));
-      Groups after = app.group().all();
-      assertThat(after, equalTo(
-              before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-  }
+    app.goTo().groupPage();
+    Groups before = app.group().all();
+    app.group().create(group);
+    assertThat(app.group().count(), equalTo(before.size() + 1));
+    Groups after = app.group().all();
+    assertThat(after, equalTo(
+            before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+}
 
   @Test(enabled = false)
   public void BadGroupAddTest() {

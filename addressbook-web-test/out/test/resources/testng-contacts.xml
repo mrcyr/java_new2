@@ -6,7 +6,7 @@
             <class name="ru.addressbook.tests.ContactAdd"/>
             <class name="ru.addressbook.tests.ContactEdit"/>
             <class name="ru.addressbook.tests.ContactDelete"/>
-            <class name="ru.addressbook.tests.ContactForm"/>
+            <!--<class name="ru.addressbook.tests.ContactForm"/>-->
 
         </classes>
     </test>
