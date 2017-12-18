@@ -41,7 +41,6 @@ public class ContactAdd extends Testbase {
     }
   }
 
-
   @DataProvider
   public Iterator<Object[]> validContactsXML() throws IOException {
     try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.xml")))) {
