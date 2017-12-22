@@ -41,14 +41,19 @@ public class ContactDataGenerator {
 
   private void run() throws IOException {
     List<ContactData> contacts = generateContacts(count);
-    if (format.equals("csv")) {
-      saveAsCSV(contacts, new File(file));
-    } else if (format.equals("xml")) {
-      saveAsXML(contacts, new File(file));
-    } else if (format.equals("json")){
-      saveAsJSON(contacts, new File(file));
-    } else {
-      System.out.println("Хз, что за формат " + format);
+    switch (format) {
+      case "csv":
+        saveAsCSV(contacts, new File(file));
+        break;
+      case "xml":
+        saveAsXML(contacts, new File(file));
+        break;
+      case "json":
+        saveAsJSON(contacts, new File(file));
+        break;
+      default:
+        System.out.println("Хз, что за формат " + format);
+        break;
     }
   }
 

@@ -39,7 +39,7 @@ public class ApplicationManager {
       wd = new InternetExplorerDriver();
     }
 
-    wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
     grouphelper01 = new Grouphelper01(wd);
     navigationhelper = new Navigationhelper(wd);
