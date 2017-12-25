@@ -1,34 +1,30 @@
 package ru.addressbook.tests;
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.addressbook.model.GroupData;
 import ru.addressbook.model.Groups;
 
-import java.util.Set;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.*;
-import static org.testng.Assert.*;
+import static org.hamcrest.CoreMatchers.equalToObject;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class GroupDelete extends Testbase {
 
   @BeforeMethod
   public void ensurePrecondition () {
     app.goTo().groupPage();
-    if(app.group().all().size() == 0){
+    if(app.db().groups().size() == 0){
       app.group().create(new GroupData().withName("test1"));
     }
   }
   @Test
   public void testGroupDelete() {
-    Groups before = app.group().all();
+    Groups before = app.db().groups();
     GroupData deletedGroup = before.iterator().next();
+    app.goTo().groupPage();
     app.group().delete(deletedGroup);
     assertEquals(app.group().count(), before.size() - 1);
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
     assertThat(after, equalToObject(before.withOut(deletedGroup)));
   }
 
