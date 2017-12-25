@@ -83,6 +83,7 @@ public class ContactAdd extends Testbase {
     Contacts after = app.contact().all();
     assertThat(after, equalTo(
             before.withAdded(contacts.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+
   }
 }
 
