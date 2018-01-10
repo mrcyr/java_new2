@@ -3,6 +3,7 @@ package ru.addressbook.app;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import ru.addressbook.model.ContactData;
 import ru.addressbook.model.Contacts;
 
@@ -144,5 +145,14 @@ public class Contacthelper extends Helperbase {
   }
   private void initContactDetailsById(int id) {
     wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+  }
+
+  public void contactAddToGroup (ContactData contact) {
+
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
+    checkContactById(contact.getId());
+    click(By.name("add"));
+    gotoHome();
+
   }
 }
