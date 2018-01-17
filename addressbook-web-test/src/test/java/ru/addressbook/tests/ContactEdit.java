@@ -1,6 +1,5 @@
 package ru.addressbook.tests;
 
-
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.addressbook.model.ContactData;
@@ -13,6 +12,7 @@ import static org.hamcrest.MatcherAssert.*;
 import static org.testng.Assert.*;
 
 public class ContactEdit extends Testbase {
+
   @BeforeMethod
   public void ensurePrecondition(){
     if (app.db().contacts().size() == 0) {
@@ -21,6 +21,7 @@ public class ContactEdit extends Testbase {
                       .withMobNumber("123123123").withEmail1("dsfsdf@dsfdsf.ru").withPhoto(new File("src/test/resources/7Lj6myuF0cA.jpg")));
     }
   }
+
   @Test(enabled = true)
   public void ContactEditTest() {
     Contacts before = app.db().contacts();
@@ -33,5 +34,6 @@ public class ContactEdit extends Testbase {
     Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.withOut(modifedContact).withAdded(contacts)));
     verifyContactListInUI();
+
   }
 }

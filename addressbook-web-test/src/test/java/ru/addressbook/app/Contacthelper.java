@@ -40,7 +40,7 @@ public class Contacthelper extends Helperbase {
     click(By.linkText("add new"));
   }
 
-  private void checkContactById(int id) {
+  public void checkContactById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
@@ -147,12 +147,22 @@ public class Contacthelper extends Helperbase {
     wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
   }
 
-  public void contactAddToGroup (ContactData contact) {
+  public void addToGroup() {
 
-    new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
-    checkContactById(contact.getId());
-    click(By.name("add"));
-    gotoHome();
+    wd.findElement(By.cssSelector("input[name='add']")).click();
 
   }
+
+  public void selectGroupForAdding(String group) {
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group);
+  }
+
+  public void selectCurrentGroup(String group) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(group);
+  }
+
+  public void removeFromGroup() {
+    wd.findElement(By.cssSelector("input[name=remove]")).click();
+  }
+
 }

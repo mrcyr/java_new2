@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 import ru.addressbook.model.GroupData;
 import ru.addressbook.model.Groups;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Grouphelper01 extends Helperbase {
 
@@ -17,7 +15,7 @@ public class Grouphelper01 extends Helperbase {
   }
 
   public void returnToGroupPage() {
-    wd.findElement(By.linkText("group page")).click();
+    wd.findElement(By.linkText("groups")).click();
   }
 
   public void submitGroupCreation() {
@@ -47,6 +45,7 @@ public class Grouphelper01 extends Helperbase {
   public void updateGroup() { click(By.name("update")); }
 
   public void create(GroupData group) {
+    returnToGroupPage();
     initGroupCreate();
     fillGroupForm(group);
     submitGroupCreation();
