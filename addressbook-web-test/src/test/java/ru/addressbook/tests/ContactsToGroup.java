@@ -1,3 +1,5 @@
+//ебаный стыд
+
 package ru.addressbook.tests;
 
 import org.testng.annotations.BeforeMethod;
